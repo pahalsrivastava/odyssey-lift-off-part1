@@ -1,35 +1,31 @@
-# Odyssey Lift-off I: Basics
+# GraphQL: The Schema
 
-Welcome to the companion app of Odyssey Lift-off I! You can [find the course lessons and instructions on Odyssey](https://odyssey.apollographql.com/lift-off-part1), Apollo's learning platform.
+A **GraphQL schema** serves as a contract between the server and the client. It defines:
 
-You can [preview the completed demo app here](https://odyssey-catstronauts.netlify.app/).
+- **What the API can do** — which data can be queried or mutated.  
+- **How clients interact with the API** — the structure and types of data they can request or change.  
 
-## How to use this repo
+The schema acts as an **abstraction layer**, providing flexibility for clients while hiding backend implementation details.
 
-The course will walk you step by step on how to implement the features you see in the demo app. This codebase is the starting point of your journey!
+---
 
-There are 3 main folders:
+## Schema Definition Language (SDL) Crash Course
 
-- `server`: The starting point of our GraphQL server.
-- `client`: The starting point of our React application.
-- `final`: The final stage of both the server and client folders, with all of the steps and code completed!
+GraphQL schemas are defined using **SDL (Schema Definition Language)**. Key points:
 
-To get started:
+- A **schema** is a collection of **object types**.  
+- Each **object type** contains **fields**, and each field has a **type**.  
+- Field types can be **scalar types** (e.g., `Int`, `String`) or **other object types**.  
 
-1. Navigate to the `server` folder.
-1. Run `npm install`.
-1. Run `npm start`.
+Example: the `Track` object type may have an `author` field of type `Author`.
 
-This will start the GraphQL API server.
+---
 
-In another terminal window,
+## Defining Object Types
 
-1. Navigate to the `client` folder.
-1. Run `npm install`.
-1. Run `npm start`.
+Use the `type` keyword followed by the **type name** (PascalCase recommended) and curly braces `{}` to declare fields:
 
-This will open up `localhost:3000` in your web browser.
-
-## Getting Help
-
-For any issues or problems concerning the course content, please refer to the [Odyssey topic in our community forums](https://community.apollographql.com/tags/c/help/6/odyssey).
+```graphql
+type SpaceCat {
+  # Fields go here
+}
